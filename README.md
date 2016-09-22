@@ -8,7 +8,7 @@ When run, this project launches a browser window displaying a list of movies wit
 # How to Use
 
 1. Make sure you have python installed in your computer
-2. Clone the github directory or Download the contents
+2. Clone the github directory (https://github.com/biswakpl/MovieDatabase.git) or Download the contents
 3. Run fresh_tomatoes.py
 4. Click the logo of any movie to open the trailer in a small window
 
