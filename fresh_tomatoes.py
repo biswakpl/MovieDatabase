@@ -2,7 +2,7 @@ import webbrowser
 import os
 import re
 import csv
-from Movie_Class import Movie
+from Movie_Class import Movie #  To use the class Movie we need to import from the other module
 
 
 # Styles and scripting for the page
@@ -175,15 +175,21 @@ def open_movies_page(movies):
     webbrowser.open('file://' + url, new=2)
 
 
-m = []
+'''
+The idea here is to create a blank array first and dynamically populate the array with the number of entries in the csv file.
+That way we don't need to change code if we add or delete entries in the movies_db.csv file
+'''
 
-with open('movie_db.csv', 'rb') as csvfile:
+m = [] #  Initializing a blank array m
+
+# Opening and reading the csv file
+
+with open('movie_db.csv', 'rb') as csvfile: 
 
     for line in csvfile.readlines():
         movie_info = line.split(',')
+        
+        m.append(Movie(movie_info[0],movie_info[1],movie_info[2],movie_info[3])) #  Creating a Movie object and adding it to the array m
 
-        m.append(Movie(movie_info[0],movie_info[1],movie_info[2],movie_info[3]))
 
-
-open_movies_page(m)
-
+open_movies_page(m) #  Passing the array of movie objects as arguments to open the web page
